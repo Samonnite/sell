@@ -1,0 +1,23 @@
+border-1px($color)
+    position: relative
+    &:after
+      display: block
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      border-top: 1px solid $color
+      content: ' '
+@media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5)
+  .border-1px
+    &::after
+      -webkit-transform:scaleY(0.7)
+      transform:scaleY(0.7)
+
+//-webkit-min-device-pixel-ratio 有多个值，可以根据项目需求定义更多的值来适配不同的机型，详细请查看本文最后的参考
+@media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2)
+  .border-1px
+    &::after
+      -webkit-transform:scaleY(0.5)
+      transform:scaleY(0.5)
+

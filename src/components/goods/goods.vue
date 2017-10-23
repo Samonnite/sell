@@ -1,5 +1,5 @@
 <template>
-  <div class="header">我是Header</div>
+  <div>woshi goods</div>
 </template>
 
 <script>
