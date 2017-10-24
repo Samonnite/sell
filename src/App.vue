@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <router-link to="/goods" class="tab-item">商品</router-link>
       <router-link to="/ratings" class="tab-item">评论</router-link>
@@ -25,8 +25,8 @@ export default {
   created() {
     this.$http.get('/api/seller').then((response) => {
       response = response.body
-      if (response.error === ERR_OK) {
-        this.seller = response.seller
+      if (response.errno === ERR_OK) {
+        this.seller = response.data
       }
     })
   },
@@ -37,7 +37,8 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import "./common/stylus/mixin.styl" 
+@import "./common/stylus/mixin"
+@import "./common/stylus/icon" 
 #app
   .tab
     display: flex
